@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Farm Work Limited - Nakuru County</title>
+
+<style>
+body {font-family: Arial; margin:0; background:#f4f7f4;}
+header {background:#14532d; color:white; padding:20px; text-align:center;}
+nav {background:#166534; padding:10px; text-align:center;}
+nav a {color:white; margin:10px; text-decoration:none; font-weight:bold;}
+section {padding:40px 20px; max-width:1100px; margin:auto;}
+h2 {color:#14532d;}
+.services {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
+.card {background:white; padding:20px; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);}
+button {background:#16a34a; color:white; border:none; padding:12px; width:100%; cursor:pointer;}
+button:hover {background:#15803d;}
+.stats {display:flex; justify-content:space-around; text-align:center;}
+footer {background:#14532d; color:white; text-align:center; padding:20px;}
+.testimonial {background:#fff; padding:15px; margin:10px 0; border-left:5px solid #16a34a;}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>FARM WORK LIMITED</h1>
+    <p>Growing Africa’s Future</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#booking">Book</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+<h2>About Us</h2>
+<p>
+Farm Work Limited is a professional agricultural services company based in Nakuru County, Kenya. 
+We specialize in mechanized farming solutions that improve productivity and efficiency for farmers.
+</p>
+</section>
+
+<section id="services">
+<h2>Our Services</h2>
+<div class="services">
+<div class="card">
+<h3>🚜 Tractor Ploughing</h3>
+<p>Professional land preparation at Ksh 3,000 per acre.</p>
+</div>
+
+<div class="card">
+<h3>🌱 Farm Preparation</h3>
+<p>Complete farm readiness services before planting.</p>
+</div>
+
+<div class="card">
+<h3>📊 Consultancy</h3>
+<p>Expert advice to improve farm productivity.</p>
+</div>
+</div>
+</section>
+
+<section id="booking">
+<h2>Book Tractor Service</h2>
+
+<input type="text" id="name" placeholder="Full Name">
+<input type="tel" id="phone" placeholder="Phone Number">
+
+<select id="service">
+<option>Tractor Ploughing</option>
+<option>Farm Preparation</option>
+<option>Consultancy</option>
+</select>
+
+<p><strong>Amount: Ksh 3,000</strong></p>
+
+<button onclick="bookService()">Pay & Book Now</button>
+</section>
+
+<section>
+<h2>How It Works</h2>
+<ol>
+<li>Enter details</li>
+<li>Receive M-PESA prompt</li>
+<li>Pay Ksh 3,000</li>
+<li>Tractor scheduled</li>
+</ol>
+</section>
+
+<section>
+<h2>Why Choose Us</h2>
+<ul>
+<li>Reliable services</li>
+<li>Affordable pricing</li>
+<li>Professional operators</li>
+<li>Fast response</li>
+</ul>
+</section>
+
+<section>
+<h2>Our Impact</h2>
+<div class="stats">
+<div><h3>100+</h3><p>Acres Serviced</p></div>
+<div><h3>50+</h3><p>Farmers</p></div>
+<div><h3>100%</h3><p>Transparency</p></div>
+</div>
+</section>
+
+<section>
+<h2>Testimonials</h2>
+
+<div class="testimonial">
+"Very reliable tractor services. Highly recommend." – Gilgil Farmer
+</div>
+
+<div class="testimonial">
+"Easy booking and fast service." – Naivasha Farmer
+</div>
+
+<div class="testimonial">
+"Professional and trustworthy." – Molo Farmer
+</div>
+
+</section>
+
+<section id="contact">
+<h2>Contact Us</h2>
+<p>Nakuru County, Kenya</p>
+<p>Phone: 0720XXXXXX</p>
+<p>Email: info@farmworklimited.co.ke</p>
+</section>
+
+<footer>
+<p>© 2026 Farm Work Limited</p>
+</footer>
+
+<script>
+function bookService() {
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let service = document.getElementById("service").value;
+
+    fetch("/book", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({name, phone, service})
+    })
+    .then(res => res.json())
+    .then(data => alert("STK Push Sent. Complete payment."));
+}
+</script>
+
+</body>
+  </html>
